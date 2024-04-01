@@ -99,11 +99,11 @@ func main() {
 
 	//constants
 
-	const cA int64 = 500000000
-	const nonType = 3423242342342
+	// const cA int64 = 500000000
+	// const nonType = 3423242342342
 	// const eSomething int64 = 3e20
 	// const divide = 3e20 / cA
-	fmt.Println("cosntant", cA, nonType)
+	// fmt.Println("cosntant", cA, nonType)
 
 	// for loop
 	for i <= 3 {
