@@ -86,6 +86,19 @@ func (r rect) perim() int {
 	return 2*r.width + 2*r.height
 }
 
+type Base struct {
+	num int64
+}
+
+func (b Base) describe() string {
+	return fmt.Sprintf("Base witj num=%v", b.num)
+}
+
+type Container struct {
+	Base
+	str string
+}
+
 func main() {
 	fmt.Println("Hello world")
 	// fmt.Println(quote.Go())
@@ -437,6 +450,28 @@ func main() {
 	//Methods
 	// rc := rect{width: 10, height: 5}
 	// fmt.Println("area", r.area())
+
+	// con := embeding_structs.Container{
+	// 	Base: embeding_structs.Base{
+	// 		num: 1,
+	// 	},
+	// 	str: "dasdasdasdasdasdasdasda",
+	// }
+
+	con := Container{
+		Base: Base{
+			num: 1,
+		},
+		str: "Hlll",
+	}
+	fmt.Printf("co={num: %v, str: %v}\n", con.num, con.str)
+	fmt.Println("also num:", con.Base.num)
+	fmt.Println("describe:", con.describe())
+	type describer interface {
+		describe() string
+	}
+	var d describer = con
+	fmt.Println("describer:", d.describe())
 }
 
 func examineRune(r rune) {
